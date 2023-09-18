@@ -1,8 +1,11 @@
-import Image from 'next/image'
-import styles from './page.module.css'
+import { Container, PressStart } from "@/styles/home";
 
 export default function Home() {
   return (
-    <div>Hello world!</div>
-  )
+    <Container>
+      <a style={{ textDecoration: "none" }} href="/slides">
+        <PressStart>APERTE START</PressStart>
+      </a>
+    </Container>
+  );
 }
