@@ -8,7 +8,7 @@ export default function Home() {
         <PressStart>APERTE START</PressStart>
       </a>
 
-      <audio src="/hptheme.mp3" autoPlay={true} loop={true} />
+      <audio src="/hp.mp3" autoPlay={true} loop={true} />
     </Container>
   );
 }
