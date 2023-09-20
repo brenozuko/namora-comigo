@@ -2,6 +2,20 @@
 
 import styled from "styled-components";
 
+export const Wrapper = styled.div`
+  opacity: 0;
+  animation: fadeIn 1s ease-in-out forwards;
+  @keyframes fadeIn {
+    0% {
+      opacity: 0;
+    }
+
+    100% {
+      opacity: 1;
+    }
+  }
+`;
+
 export const Container = styled.div`
   display: flex;
   width: 1280px;

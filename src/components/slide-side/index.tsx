@@ -1,3 +1,4 @@
+"use client"
 import Image from "next/image";
 
 // STYLES
@@ -8,24 +9,27 @@ import {
   Slide,
   SlideImage,
   Text,
+  Wrapper,
 } from "./slide-side-styled";
 
 interface SlideSideProps {
-  textDirection: "left" | "right";
   text: string;
   imagePath: string;
+  imageStyle?: any;
+  onClickNext: () => void;
 }
 export const SlideSide = ({
-  textDirection,
   text,
   imagePath,
+  imageStyle,
+  onClickNext,
 }: SlideSideProps) => {
   return (
-    <div>
+    <Wrapper>
       <Image
         src="/hearts-desk-top.png"
         alt="hearts"
-        width={1366}
+        width={1280}
         height={171}
         style={{ marginBottom: 100 }}
       />
@@ -34,21 +38,21 @@ export const SlideSide = ({
         <Content>
           <Text>{text}</Text>
 
-          <Button>NEXT</Button>
+          <Button onClick={onClickNext}>NEXT</Button>
         </Content>
 
         <SlideImage>
-          <Slide src={imagePath} />
+          <Slide style={imageStyle} src={imagePath} />
         </SlideImage>
       </Container>
 
       <Image
         src="/hearts-desk-bottom.png"
         alt="hearts"
-        width={1366}
+        width={1280}
         height={171}
         style={{ marginTop: 100 }}
       />
-    </div>
+    </Wrapper>
   );
 };
