@@ -5,7 +5,6 @@ import Image from "next/image";
 import {
   Button,
   Container,
-  Content,
   Slide,
   SlideImage,
   Text,
@@ -29,29 +28,26 @@ export const SlideTop = ({
       <Image
         src="/two-hearts.png"
         alt="hearts"
-        width={1280}
-        height={171}
-        style={{ marginBottom: 100 }}
+        width={1208}
+        height={114}
+        style={{marginBottom: 20}}
       />
 
       <Container>
-        <Content>
-          <Text>{text}</Text>
-
-          <Button onClick={onClickNext}>NEXT</Button>
-        </Content>
-
         <SlideImage>
           <Slide style={imageStyle} src={imagePath} />
         </SlideImage>
+
+        <Text>{text}</Text>
+
+        <Button onClick={onClickNext}>NEXT</Button>
       </Container>
 
       <Image
         src="/two-hearts.png"
         alt="hearts"
-        width={1280}
-        height={171}
-        style={{ marginTop: 100 }}
+        width={1208}
+        height={114}
       />
     </Wrapper>
   );

@@ -17,16 +17,20 @@ export const Wrapper = styled.div`
 `;
 
 export const Container = styled.div`
-  display: flex;
   width: 1280px;
-  justify-content: space-between;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 `;
 
 export const Content = styled.div`
   max-width: 600px;
 `;
 
-export const SlideImage = styled.div``;
+export const SlideImage = styled.div`
+  max-width: 623px;
+`;
 
 export const Slide = styled.img`
   border-radius: 25px;
@@ -39,6 +43,8 @@ export const Text = styled.h2`
   font-size: 32px;
   font-weight: 400;
   line-height: 48px; /* 150% */
+  max-width: 505px;
+  text-align: center;
 `;
 
 export const Button = styled.div`
