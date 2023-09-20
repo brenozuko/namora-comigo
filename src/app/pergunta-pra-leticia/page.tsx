@@ -7,12 +7,13 @@ import { SlideSide } from "@/components/slide-side";
 
 // STYLES
 import { SlideTop } from "@/components/slide-top";
+import { TextWithButton } from "@/components/text-with-button";
 import { Container } from "@/styles/pergunta";
 
 export default function Slides() {
   const [index, setIndex] = useState(0);
 
-  const largestIndex = 4;
+  const largestIndex = 5;
 
   const onClickNext = () => {
     if (index === largestIndex) {
@@ -20,6 +21,8 @@ export default function Slides() {
     }
     setIndex(index + 1);
   };
+
+  const handleQuestion = () => {};
 
   return (
     <Container>
@@ -63,6 +66,13 @@ export default function Slides() {
           text="VOCê É A MELHOR COMPANHIA PARA TODAS AS HORAS"
           imagePath="/us.png"
           onClickNext={onClickNext}
+        />
+      )}
+
+      {index === 5 && (
+        <TextWithButton
+          text="TEM SIDO UMA AVENTURA E TANTO, MAS AINDA RESTA PERGUNTAR..."
+          onClickNext={handleQuestion}
         />
       )}
 
