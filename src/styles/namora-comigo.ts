@@ -3,17 +3,9 @@
 import styled from "styled-components";
 
 export const Wrapper = styled.div`
-  opacity: 0;
-  animation: fadeIn 1s ease-in-out forwards;
-  @keyframes fadeIn {
-    0% {
-      opacity: 0;
-    }
-
-    100% {
-      opacity: 1;
-    }
-  }
+  width: 1920px;
+  margin: 0 auto;
+  position: relative;
 `;
 
 export const Container = styled.div`
