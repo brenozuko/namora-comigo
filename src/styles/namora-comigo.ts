@@ -32,6 +32,7 @@ export const Text = styled.h2`
   line-height: 48px; /* 150% */
   max-width: 900px;
   text-align: center;
+  display: block;
 `;
 
 export const ButtonYes = styled.div`
@@ -39,15 +40,31 @@ export const ButtonYes = styled.div`
   height: 73px;
   border-radius: 30px;
   color: #fff;
-  background-color: #5d48df;
+  background-color: #139054;
   display: flex;
   text-align: center;
   justify-content: center;
   align-items: center;
   font-size: 22px;
   cursor: pointer;
+`;
 
-  &:hover {
-    background-color: #4c3dd9;
-  }
+export const ButtonNo = styled.div`
+  width: 244px;
+  height: 73px;
+  border-radius: 30px;
+  color: #fff;
+  background-color: #E32121;
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  font-size: 22px;
+  cursor: pointer;
+`;
+
+export const ButtonsContainer = styled.div`
+  display: flex;
+  justify-content: space-around;
+  width: 736px;
 `;

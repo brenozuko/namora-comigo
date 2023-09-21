@@ -22,7 +22,9 @@ export default function Slides() {
     setIndex(index + 1);
   };
 
-  const handleQuestion = () => {};
+  const handleQuestion = () => {
+    window.location.href = "/namora-comigo";
+  };
 
   return (
     <Container>

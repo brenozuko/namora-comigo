@@ -1,14 +1,63 @@
+"use client";
+import { useRef, useState } from "react";
+
+// STYLES
 import { Container } from "@/styles/containers";
-import { PressStart } from "@/styles/home";
+import {
+  ButtonNo,
+  ButtonYes,
+  ButtonsContainer,
+  Text,
+} from "@/styles/namora-comigo";
+import Image from "next/image";
 
 export default function NamoraComigo() {
+  const [hover, setHover] = useState(false);
+
+  const buttonNo = useRef<HTMLDivElement>(null);
+
+  const mouseEnterNo = () => {
+    setHover(true);
+    if (buttonNo.current) {
+      buttonNo.current.style.top = `${Math.random() * 100}%`;
+      buttonNo.current.style.left = `${Math.random() * 100}%`;
+      buttonNo.current.style.position = "absolute";
+    }
+  };
+
+  const onClickYes = () => {
+    window.location.href = "/ela-aceitou";
+  };
   return (
     <Container>
-      <a style={{ textDecoration: "none" }} href="/pergunta-pra-leticia">
-        <PressStart>APERTE START</PressStart>
-      </a>
+      <Image
+        src="/two-hearts.png"
+        alt="hearts"
+        width={1208}
+        height={114}
+        style={{ marginBottom: 200 }}
+      />
 
-      <audio src="/hp.mp3" autoPlay={true} loop={true} />
+      <Text>LETICIA, NAMORA COMIGO?</Text>
+
+      <ButtonsContainer
+        style={{ justifyContent: hover ? "center" : "space-between" }}
+      >
+        <ButtonYes onClick={onClickYes}>SIM</ButtonYes>
+        <ButtonNo onMouseEnter={mouseEnterNo} ref={buttonNo}>
+          NÃO
+        </ButtonNo>
+      </ButtonsContainer>
+
+      <Image
+        src="/two-hearts.png"
+        alt="hearts"
+        width={1208}
+        height={114}
+        style={{ marginTop: 200 }}
+      />
+
+      <audio src="/prank.mp3" autoPlay={true} loop={true} />
     </Container>
   );
 }
