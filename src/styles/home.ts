@@ -26,3 +26,22 @@ export const PressStart = styled.h1`
   }
 `;
 
+
+export const SaidYesContainer = styled.div`
+  margin-bottom: 96px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+`
+
+
+export const TextSaidYes = styled.h1`
+  color: #fff;
+  text-align: center;
+  font-size: 46px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 65px;
+  margin: 0;
+`;
