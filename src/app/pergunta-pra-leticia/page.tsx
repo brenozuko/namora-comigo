@@ -30,7 +30,7 @@ export default function Slides() {
     <Container>
       {index === 0 && (
         <SlideSide
-          text="VOCÊ CHEGOU DE FORMA SUBITA E ME ACERTOU COMO UM RASENGAN..."
+          text="VOCÊ APARECEU DO NADA E ME ACERTOU COMO UM RASENGAN..."
           imagePath="/rasengan.gif"
           imageStyle={{ width: 618, height: 319 }}
           onClickNext={onClickNext}

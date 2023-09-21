@@ -1,17 +1,41 @@
 "use client";
+import Image from "next/image";
+import { useEffect, useState } from "react";
+
+// SERVICES
+import getData from "@/firebase/firestore/get-data";
+
+// STYLES
 import { ButtonPurple } from "@/styles/buttons";
 import { Container, Text } from "@/styles/ela-aceitou";
-import Image from "next/image";
 
 export default function Home() {
-  const date = new Date();
-
-  const monthDayNow = date.getDate();
-  const monthNow = date.getMonth() + 1;
+  const [monthDay, setMonthDay] = useState<number>(0);
+  const [month, setMonth] = useState<number>(0);
+  const [year, setYear] = useState<number>(0);
 
   const onClickBack = () => {
     window.location.href = "/";
   };
+
+  const onPageLoad = async () => {
+    const { result, error } = await getData("she", "said-yes");
+
+    if (error) {
+      return console.log(error);
+    }
+
+    const date = new Date(result?.data()?.date.seconds * 1000);
+
+    setMonthDay(date.getDate());
+    setMonth(date.getMonth() + 1);
+    setYear(date.getFullYear());
+  };
+
+  useEffect(() => {
+    onPageLoad();
+  }, []);
+
   return (
     <Container>
       <Image
@@ -24,10 +48,12 @@ export default function Home() {
 
       <Text> O JOGO COMEÇOU EM: </Text>
       <Text>
-        {monthDayNow}/0{monthNow}/2023
+        {monthDay}/0{month}/{year}
       </Text>
 
-      <ButtonPurple style={{marginTop: 85}} onClick={onClickBack}>GO BACK</ButtonPurple>
+      <ButtonPurple style={{ marginTop: 85 }} onClick={onClickBack}>
+        GO BACK
+      </ButtonPurple>
 
       <Image
         src="/two-hearts.png"

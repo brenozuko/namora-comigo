@@ -13,6 +13,7 @@ import Image from "next/image";
 
 // SERVICES
 import addData from "@/firebase/firestore/add-data";
+import getData from "@/firebase/firestore/get-data";
 
 export default function NamoraComigo() {
   const [hover, setHover] = useState(false);
@@ -22,10 +23,20 @@ export default function NamoraComigo() {
   const mouseEnterNo = () => {
     setHover(true);
     if (buttonNo.current) {
-      buttonNo.current.style.top = `${Math.random() * 100}%`;
-      buttonNo.current.style.left = `${Math.random() * 100}%`;
+      buttonNo.current.style.top = `${Math.random() * 800}px`;
+      buttonNo.current.style.left = `${Math.random() * 800}px`;
       buttonNo.current.style.position = "absolute";
     }
+  };
+
+  const checkIfAccepted = async () => {
+    const { result, error } = await getData("she", "said-yes");
+
+    if (error) {
+      return console.log(error);
+    }
+
+    return result?.data()?.accept;
   };
 
   const onClickYes = async () => {
@@ -33,6 +44,11 @@ export default function NamoraComigo() {
       accept: true,
       date: new Date(),
     };
+
+    if (await checkIfAccepted()) {
+      return (window.location.href = "/ela-aceitou");
+    }
+
     const { error } = await addData("she", "said-yes", data);
 
     if (error) {
