@@ -11,6 +11,9 @@ import {
 } from "@/styles/namora-comigo";
 import Image from "next/image";
 
+// SERVICES
+import addData from "@/firebase/firestore/add-data";
+
 export default function NamoraComigo() {
   const [hover, setHover] = useState(false);
 
@@ -25,7 +28,17 @@ export default function NamoraComigo() {
     }
   };
 
-  const onClickYes = () => {
+  const onClickYes = async () => {
+    const data = {
+      accept: true,
+      date: new Date(),
+    };
+    const { error } = await addData("she", "said-yes", data);
+
+    if (error) {
+      return console.log(error);
+    }
+
     window.location.href = "/ela-aceitou";
   };
   return (
