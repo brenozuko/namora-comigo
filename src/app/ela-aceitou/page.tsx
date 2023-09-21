@@ -7,7 +7,7 @@ import getData from "@/firebase/firestore/get-data";
 
 // STYLES
 import { ButtonPurple } from "@/styles/buttons";
-import { Container, Text } from "@/styles/ela-aceitou";
+import { Container, Gif, Text } from "@/styles/ela-aceitou";
 
 export default function Home() {
   const [monthDay, setMonthDay] = useState<number>(0);
@@ -43,8 +43,10 @@ export default function Home() {
         alt="hearts"
         width={1208}
         height={114}
-        style={{ marginBottom: 200 }}
+        style={{ marginBottom: 0 }}
       />
+
+      <Gif src="/8bit-computer.gif" />
 
       <Text> O JOGO COMEÇOU EM: </Text>
       <Text>
@@ -60,8 +62,8 @@ export default function Home() {
         alt="hearts"
         width={1208}
         height={114}
-        style={{ marginTop: 200 - 85 }}
-      />
+        style={{ marginTop: 0 }}
+      />8
 
       <audio src="/yay.mp3" autoPlay={true} loop={true} />
     </Container>
